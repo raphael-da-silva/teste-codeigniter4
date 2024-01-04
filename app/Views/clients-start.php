@@ -8,7 +8,7 @@
 
     <hr>
 
-    <a href="" class="btn btn-success">
+    <a href="/clientes/adicionar" class="btn btn-success">
         Cadastrar novo cliente
     </a>
 
@@ -35,8 +35,8 @@
                             <td><?php echo $client->address ?></td>
 
                             <td class="btn-group text-center">
-                                <a href="" class="btn btn-info">editar</a>
-                                <a href="" class="btn btn-danger">remover</a>
+                                <a href="/clientes/editar/<?php echo $client->id ?>" class="btn btn-info">editar</a>
+                                <a href="/clientes/remover/<?php echo $client->id ?>" class="btn btn-danger">remover</a>
                             </td>
                         </tr>
                     <?php } ?>

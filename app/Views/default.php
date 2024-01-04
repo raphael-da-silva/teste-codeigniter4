@@ -19,6 +19,12 @@
     <div class="bg-dark p-2 text-white mb-2">
         Area logada - Teste Codeigniter / Raphael da Silva
 
+        <hr class="m-1">
+
+        <a href="/clientes" class="btn-info btn-sm btn">
+            início / dashboard
+        </a>
+
         <a href="/logout" class="btn-warning btn-sm btn">
             sair / logout
         </a>

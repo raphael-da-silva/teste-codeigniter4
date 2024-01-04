@@ -28,4 +28,10 @@ class ClientsController extends BaseController
     {
         return view('client-form.php');
     }
+
+    public function update(int $id): string
+    {   
+        dd($id);
+        return view('client-form.php');
+    }
 }
