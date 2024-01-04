@@ -18,3 +18,5 @@ $routes->get('/logout', 'LoginAccess::logout');
 $routes->get('/clientes', 'ClientsController::index');
 $routes->get('/clientes/adicionar',  'ClientsController::new');
 $routes->get('/clientes/editar/(:num)', 'ClientsController::update/$1');
+
+$routes->post('/insert', 'ClientsController::insert');

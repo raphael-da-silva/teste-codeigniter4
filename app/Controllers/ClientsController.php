@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ClientModel;
 use App\Models\ClientsList;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
@@ -41,5 +42,17 @@ class ClientsController extends BaseController
         return view('client-form.php', [
             'client' => $client
         ]);
+    }
+
+    public function insert()
+    {
+        $model = new ClientModel();
+
+        if(!$this->validate($model->getValidationRules(), $model->getValidationMessages())){
+            return view('client-form.php');
+        }
+
+        $model->save($this->request->getRawInput());
+        return redirect()->to('/clientes');
     }
 }
