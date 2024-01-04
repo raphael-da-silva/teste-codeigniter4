@@ -18,6 +18,10 @@
 <body>
     <div class="bg-dark p-2 text-white mb-2">
         Area logada - Teste Codeigniter / Raphael da Silva
+
+        <a href="/logout" class="btn-warning btn-sm btn">
+            sair / logout
+        </a>
     </div>
 
     <div class="content m-auto">
