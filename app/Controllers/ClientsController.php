@@ -23,4 +23,9 @@ class ClientsController extends BaseController
             'list' => $this->clients->getAll()
         ]);
     }
+
+    public function new(): string
+    {
+        return view('client-form.php');
+    }
 }
