@@ -36,7 +36,11 @@
 
                             <td class="btn-group text-center">
                                 <a href="/clientes/editar/<?php echo $client->id ?>" class="btn btn-info">editar</a>
-                                <a href="/clientes/remover/<?php echo $client->id ?>" class="btn btn-danger">remover</a>
+
+                                <form action="/remove" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $client->id ?>">
+                                    <input type="submit" class="btn btn-danger" value="apagar">
+                                </form>
                             </td>
                         </tr>
                     <?php } ?>

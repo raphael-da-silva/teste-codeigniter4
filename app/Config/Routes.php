@@ -20,3 +20,4 @@ $routes->get('/clientes/adicionar',  'ClientsController::new');
 $routes->get('/clientes/editar/(:num)', 'ClientsController::update/$1');
 
 $routes->post('/insert', 'ClientsController::insert');
+$routes->post('/remove', 'ClientsController::remove');

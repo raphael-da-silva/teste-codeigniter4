@@ -6,16 +6,19 @@ use App\Controllers\BaseController;
 use App\Models\ClientModel;
 use App\Models\ClientsList;
 use CodeIgniter\Exceptions\PageNotFoundException;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class ClientsController extends BaseController
 {
     use RestrictedController;
 
     private $clients;
+    private $model;
 
     public function __construct()
     {
         $this->clients = new ClientsList;
+        $this->model   = new ClientModel;
         $this->isLogged();
     }
 
@@ -44,15 +47,21 @@ class ClientsController extends BaseController
         ]);
     }
 
-    public function insert()
+    public function insert(): mixed
     {
-        $model = new ClientModel();
-
-        if(!$this->validate($model->getValidationRules(), $model->getValidationMessages())){
+        if(!$this->validate($this->model->getValidationRules(), $this->model->getValidationMessages())){
             return view('client-form.php');
         }
 
-        $model->save($this->request->getRawInput());
+        $this->model->save($this->request->getRawInput());
+        return redirect()->to('/clientes');
+    }
+
+    public function remove(): RedirectResponse
+    {
+        $id = $this->request->getRawInputVar('id');
+
+        $this->model->delete($id);
         return redirect()->to('/clientes');
     }
 }
