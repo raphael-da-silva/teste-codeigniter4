@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ClientsList;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class ClientsController extends BaseController
 {
@@ -31,7 +32,14 @@ class ClientsController extends BaseController
 
     public function update(int $id): string
     {   
-        dd($id);
-        return view('client-form.php');
+        $client = $this->clients->getById($id);
+  
+        if(!$client){
+            throw new PageNotFoundException('Cliente não encotrado');
+        }
+
+        return view('client-form.php', [
+            'client' => $client
+        ]);
     }
 }

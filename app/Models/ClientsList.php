@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use stdClass;
+
 class ClientsList
 {
     private $db;
@@ -17,5 +19,18 @@ class ClientsList
         $list = $list->getResultObject();
 
         return $list;
+    }
+
+    public function getById(int $id): ?stdClass
+    {
+        $client = $this->db->query('SELECT id, name, email, phone, address FROM clients WHERE id = :id:', [
+            'id' => $id
+        ]);
+
+        if ($client->getNumRows() == 1){
+            return $client->getResultObject()[0];
+        }
+
+        return null;
     }
 }
