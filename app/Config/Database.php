@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => '',
         'password'     => '',
-        'database'     => '',
+        'database'     => 'teste_codeigniter',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -73,6 +73,9 @@ class Database extends Config
 
     public function __construct()
     {
+        $this->default['username'] = getenv('db_username');
+        $this->default['password'] = getenv('db_password');
+
         parent::__construct();
 
         // Ensure that we always set the database group to 'tests' if

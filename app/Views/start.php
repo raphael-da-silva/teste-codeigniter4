@@ -17,6 +17,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <?php if($error){ ?>
+                <div class="bg-danger p-2 text-white">
+                    <?php echo $error; ?>
+                </div>
+            <?php } ?>
+
             <div class="card mt-4">
                 <div class="card-header">Entrar no sistema - Teste Codeigniter</div>
 
