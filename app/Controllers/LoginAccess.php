@@ -46,4 +46,10 @@ class LoginAccess extends BaseController
 
         return redirect()->to('/clientes');
     }
+
+    public function logout(): RedirectResponse
+    {
+        $this->loginSession->remove('loggedUser');
+        return redirect('index');
+    }
 }
