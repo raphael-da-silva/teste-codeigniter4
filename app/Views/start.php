@@ -26,6 +26,16 @@
             <div class="card mt-4">
                 <div class="card-header">Entrar no sistema - Teste Codeigniter</div>
 
+                <?php if(session()->get('loggedUser') != null){ ?>
+                    <div class="bg-success p-1 text-white text-center">
+                        Você já está logado.
+
+                        <a href="/clientes" class="text-warning">
+                            voltar para área restrita
+                        </a>
+                    </div>
+                <?php } ?>
+
                 <div class="card-body">
                     <form method="POST" action="/login-access">
                         <div class="row mb-3">
