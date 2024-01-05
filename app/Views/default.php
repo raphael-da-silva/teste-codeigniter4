@@ -25,7 +25,7 @@
                     return;
                 }
 
-                var addressString = result.logradouro + ' - bairro ' + result.bairro + ' - ' + result.uf;
+                var addressString = result.logradouro + ' - bairro ' + result.bairro + ' - ' + result.localidade;
                 $('#address').val(addressString);
             });
         };
