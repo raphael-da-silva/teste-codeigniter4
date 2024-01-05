@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\UserCredentials;
 use CodeIgniter\HTTP\RedirectResponse;
+use stdClass;
 
 // Teste da vaga de Codeigniter - Raphael da Silva
 class LoginAccess extends BaseController
 {
-    private $db;
+    private $userAuth;
     private $loginSession;
 
     public function __construct()
-    {   
-        $this->db = db_connect();
+    {
+        $this->userAuth = new UserCredentials();
         $this->loginSession = session();
     }
 
@@ -21,28 +23,27 @@ class LoginAccess extends BaseController
     {
         $email    = $this->request->getRawInputVar('email');
         $password = $this->request->getRawInputVar('password');
+        $user     = $this->userAuth->getUser($email);
 
-        $getUser = $this->db->query('SELECT name, email, password FROM users WHERE email = :email: LIMIT 1', [
-            'email' => $email
-        ]);
-
-        $getUser = $getUser->getResultObject();
-
-        if(count($getUser) == 0){
+        if($user == null){
             $this->loginSession->setFlashdata('loginError','Credenciais inválidas.');
             return redirect()->to('/index');
         }
 
-        $match = password_verify($password, $getUser[0]->password);
+        $match = password_verify($password, $user->password);
 
         if(!$match){
             $this->loginSession->setFlashdata('loginError','Credenciais são inválidas.');
             return redirect()->to('/index');
         }
 
+        return $this->userIsLogged($user);
+    }
+
+    public function userIsLogged(stdClass $user): RedirectResponse
+    {
         $this->loginSession->set('loggedUser', [
-            'name'  => $getUser[0]->name,
-            'email' => $getUser[0]->email
+            'name'  => $user->name
         ]);
 
         return redirect()->to('/clientes');
