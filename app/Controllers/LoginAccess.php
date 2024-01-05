@@ -19,8 +19,8 @@ class LoginAccess extends BaseController
 
     public function index(): RedirectResponse
     {
-        $email    = filter_input(INPUT_POST, 'email');
-        $password = filter_input(INPUT_POST, 'password');
+        $email    = $this->request->getRawInputVar('email');
+        $password = $this->request->getRawInputVar('password');
 
         $getUser = $this->db->query('SELECT name, email, password FROM users WHERE email = :email: LIMIT 1', [
             'email' => $email
