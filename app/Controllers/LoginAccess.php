@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\RedirectResponse;
 
+// Teste da vaga de Codeigniter - Raphael da Silva
 class LoginAccess extends BaseController
 {
     private $db;

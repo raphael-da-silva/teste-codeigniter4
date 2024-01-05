@@ -4,6 +4,7 @@ namespace App\Models;
 
 use stdClass;
 
+// Teste da vaga de Codeigniter - Raphael da Silva
 class ClientsList
 {
     private $db;

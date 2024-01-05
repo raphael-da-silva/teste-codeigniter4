@@ -8,6 +8,7 @@ use App\Models\ClientsList;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\RedirectResponse;
 
+// Teste da vaga de Codeigniter - Raphael da Silva
 class ClientsController extends BaseController
 {
     use RestrictedController;

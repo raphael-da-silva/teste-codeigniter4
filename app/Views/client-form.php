@@ -60,6 +60,10 @@
 
         <hr>
 
+        <div class="alert alert-warning">
+            Ao buscar um CEP o endereço será adicionado no campo no formulário do lado no campo endereço.
+        </div>
+
         <form>
             <label>Digite o CEP:</label>
             <input type="text" id="CEP-search" class="form-control">

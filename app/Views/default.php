@@ -33,6 +33,12 @@
         var SearchAddress = function(){
             $('#search').on('click', function(){
                 var CEP = $('#CEP-search').val();
+
+                if(!CEP){
+                    alert('Insira algum CEP');
+                    return;
+                }
+
                 GetAddressByCEP(CEP);
             });
         };
@@ -48,7 +54,11 @@
 
 <body>
     <div class="bg-dark p-2 text-white mb-2">
-        Area logada - Teste Codeigniter / Raphael da Silva
+        <span class="badge bg-success">
+            Logado como <?php echo session()->get('loggedUser')['name']; ?>
+        </span>
+
+        - Teste Codeigniter / Raphael da Silva
 
         <hr class="m-1">
 

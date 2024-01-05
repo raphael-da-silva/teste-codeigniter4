@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+// Teste da vaga de Codeigniter - Raphael da Silva
 trait RestrictedController
 {
     public function isLogged( ): void

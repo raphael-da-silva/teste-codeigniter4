@@ -24,7 +24,10 @@
             <?php } ?>
 
             <div class="card mt-4">
-                <div class="card-header">Entrar no sistema - Teste Codeigniter</div>
+                <div class="card-header">
+                    Entrar no sistema - Teste Codeigniter de 
+                    <a href="https://github.com/raphael-da-silva">Raphael da silva</a>
+                </div>
 
                 <?php if(session()->get('loggedUser') != null){ ?>
                     <div class="bg-success p-1 text-white text-center">

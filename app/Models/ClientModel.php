@@ -4,8 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-use function PHPSTORM_META\map;
-
+// Teste da vaga de Codeigniter - Raphael da Silva
 class ClientModel extends Model
 {
     protected $table            = 'clients';
