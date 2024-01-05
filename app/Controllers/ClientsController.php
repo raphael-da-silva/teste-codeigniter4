@@ -39,7 +39,7 @@ class ClientsController extends BaseController
         $client = $this->clients->getById($id);
   
         if(!$client){
-            throw new PageNotFoundException('Cliente não encotrado');
+            throw new PageNotFoundException('Cliente não encontrado.');
         }
 
         return view('client-form.php', [
@@ -47,13 +47,19 @@ class ClientsController extends BaseController
         ]);
     }
 
-    public function insert(): mixed
+    public function submit(): mixed
     {
+        $hasId = $this->request->getRawInputVar('id');
+
         if(!$this->validate($this->model->getValidationRules(), $this->model->getValidationMessages())){
-            return view('client-form.php');
+            return view('client-form.php', [
+                'client' => $hasId ? $this->clients->getById($hasId) : null
+            ]);
         }
 
-        $this->model->save($this->request->getRawInput());
+        $input = $this->request->getRawInput();
+        $this->model->save($input);
+
         return redirect()->to('/clientes');
     }
 

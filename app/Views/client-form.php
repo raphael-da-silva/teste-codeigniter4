@@ -21,7 +21,7 @@
 ?>
 
 <div class="bg-info p-2">
-    <form action="/insert" method="post">
+    <form action="/submit" method="post">
         <?php if(isset($client)){ ?>
             <input type="hidden" name="id" value="<?php echo $client->id; ?>">
         <?php } ?>
