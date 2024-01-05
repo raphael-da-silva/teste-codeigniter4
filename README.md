@@ -35,3 +35,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela dos usuários de login';
 
 ```
+
+## Rodar o projeto
+
+É necessário rodar o composer para instalar as dependencias e criar a pasta vendor. E vc pode usar o servidor embutido do PHP para subir o projeto.
