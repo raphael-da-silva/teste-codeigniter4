@@ -7,8 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // inicio
-$routes->get('/', 'Home::index');
-$routes->get('/index', 'Home::index');
+$routes->get('/', 'HomeController::index');
+$routes->get('/index', 'HomeController::index');
 
 // rotas de login
 $routes->post('/login-access', 'LoginAccess::index');
